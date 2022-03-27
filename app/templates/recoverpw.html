@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="static/assets/images/favicon_1.ico">
+
+        <title>{{app_name}} - Responsive Admin Dashboard Template</title>
+
+        <link href="static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/core.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/components.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/pages.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/menu.css" rel="stylesheet" type="text/css">
+        <link href="static/assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+        <script src="static/assets/js/modernizr.min.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+    <body>
+
+
+        <div class="wrapper-page">
+            <div class="panel panel-color panel-primary panel-pages">
+
+                <div class="panel-heading bg-img"> 
+                    <div class="bg-overlay"></div>
+                    <h3 class="text-center m-t-10 text-white"> Reset Password </h3>
+                </div> 
+
+                <div class="panel-body">
+                 <form method="post" action="/recoverpw" role="form" class="text-center" novalidate>
+                                          {{ form.hidden_tag() }}
+
+                    <div class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Enter your <b>Email</b> and instructions will be sent to you!
+                    </div>
+
+                    <div class="form-group m-b-0"> 
+                        <div class="input-group"> 
+<!--                            <input type="email" class="form-control input-lg" placeholder="Enter Email" required=""> -->
+                              {{ form.email(size=32, class="form-control input-lg", placeholder="Enter Email") }}
+
+                        {% for error in form.email.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                            <span class="input-group-btn">
+<!--                                <button type="submit" class="btn btn-lg btn-primary waves-effect waves-light">Reset</button> -->
+                                <p>{{ form.submit(class="btn btn-primary btn-lg w-lg  waves-light") }}</p>
+
+                            </span>
+                        </div> 
+                    </div> 
+                    
+                </form>
+
+                </div>                                 
+                
+            </div>
+        </div>
+
+        
+    	<script>
+            var resizefunc = [];
+        </script>
+
+        <!-- Main  -->
+        <script src="static/assets/js/jquery.min.js"></script>
+        <script src="static/assets/js/bootstrap.min.js"></script>
+        <script src="static/assets/js/detect.js"></script>
+        <script src="static/assets/js/fastclick.js"></script>
+        <script src="static/assets/js/jquery.slimscroll.js"></script>
+        <script src="static/assets/js/jquery.blockUI.js"></script>
+        <script src="static/assets/js/waves.js"></script>
+        <script src="static/assets/js/wow.min.js"></script>
+        <script src="static/assets/js/jquery.nicescroll.js"></script>
+        <script src="static/assets/js/jquery.scrollTo.min.js"></script>
+
+        <script src="static/assets/js/jquery.app.js"></script>
+	
+	</body>
+
+</html>

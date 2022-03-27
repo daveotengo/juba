@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+                                <!-- /.modal -->
+
+                                        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                            <div class="modal-dialog" style="width: 30%;">
+                                                <div class="modal-content">
+
+                                                <form  id="signupForm" method="get" action="#" novalidate="novalidate">
+
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title">Add User</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+<!--                                                            <div class="col-md-12">-->
+<!--                                                                <div class="form-group">-->
+<!--                                                                    <label for="firstName" class="control-label">Full Name</label>-->
+<!--                                                                    <input type="text" class="form-control" name="inputId" required="" style="display:none;" id="inputId" >-->
+<!--                                                                    <input type="text" class="form-control" name="firstName" required="" id="firstName" >-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+                                                              <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="name" class="control-label">Full Name</label>
+                                                                    <input type="text" class="form-control" name="inputId" required="" style="display:none;" id="inputId" >
+                                                                    <input type="text" class="form-control" name="name" required="" id="name" >
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="email" class="control-label">Email</label>
+                                                                    <input type="email" class="form-control" name="email" required="" id="email" >
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+<!--                                                          <div class="row">-->
+<!--                                                            <div class="col-md-12">-->
+<!--                                                                <div class="form-group">-->
+<!--                                                                    <label for="phoneNumber" class="control-label">Phone Number</label>-->
+<!--                                                                    <input type="tel" class="form-control" name="phoneNumber" required="" id="phoneNumber" >-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+
+<!--                                                        </div>-->
+
+                                                          <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="username" class="control-label">Username</label>
+                                                                    <input type="tel" class="form-control" name="username" required="" id="username" >
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+                                                         <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label  class="control-label">Roles</label>
+<!--                                                                     <input type="text" class="form-control" name="roleName" required="" id="roleName">
+ -->
+ 																		<select id="role" name="roleName" class="form-control device" data-placeholder="Choose a Role..."  >
+<!--                                              								<option th:each="role: ${role}" th:text="${role.name}"  th:value="${role.id}"></option>-->
+                                              								<option value="0">guest</option>
+                                                                            <option value="1">user</option>
+                                                                            <option value="2">admin</option>
+
+                                           								 </select>
+ 																		</div>
+                                                            </div>
+
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                        <button id="btnAdd" type="submit" onclick="addUser(this)" class="btn btn-info waves-effect waves-light">Add</button>
+                                                        <button id="btnUpdate" style="display:none" type="submit" onclick="updateUser(this)" class="btn btn-info waves-effect waves-light">Update</button>
+                                                    </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div><!-- /.modal -->
+
+                                 <div style="display:none" id="loading"></div>
+
+
+        <div class="wrapper">
+            <div class="container">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="btn-group pull-right">
+                            <button type="button" onclick="showBtnAdd(this)" class="btn btn-primary dropdown-toggle waves-effect waves-light" data-toggle="modal" data-target="#con-close-modal"  aria-expanded="false">Add <span class="m-l-5"><i class="fa fa-plus"></i></span></button>
+<!--                            <ul class="dropdown-menu" role="menu">-->
+<!--                                <li><a href="#">Action</a></li>-->
+<!--                                <li><a href="#">Another action</a></li>-->
+<!--                                <li><a href="#">Something else here</a></li>-->
+<!--                                <li class="divider"></li>-->
+<!--                                <li><a href="#">Separated link</a></li>-->
+<!--                            </ul>-->
+                        </div>
+                        <h4 class="page-title">Datatable </h4>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">KeyTable example</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table id="datatable-keytable" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>EMAIL</th>
+                                            <th>USERNAME</th>
+                                            <th>ACCESS</th>
+                                            <th>CREATE DATE</th>
+                                            <th>ACTIONS</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <tr>
+<!--                                             <td>Tiger Nixon</td>-->
+<!--                                            <td>System Architect</td>-->
+<!--                                            <td>Edinburgh</td>-->
+<!--                                            <td>61</td>-->
+<!--                                            <td>2011/04/25</td>-->
+<!--                                            <td>$320,800</td>-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Row -->
+
+
+
+
+
+
+
+            </div>
+            <!-- end container -->
+
+        </div>
+        <!-- end wrapper -->
+<!--	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+
+
+
+{% endblock %}
