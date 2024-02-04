@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+env_bak/
+*.log
+
+# Ignore pipenv virtual environment
+Pipfile
+Pipfile.lock
+
+# Ignore Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Python-specific files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore coverage reports
+htmlcov/
+
+# Ignore pytest cache
+__pycache__/
+.cache/
+
+# Ignore the built distribution directory
+dist/
+build/
+
+# Ignore egg-info directory
+*.egg-info/
+
+# Ignore pycache directory
+__pycache__/
+
+# Ignore .DS_Store files
+.DS_Store
+
+# Ignore environment variables file
+.env
+
+# Ignore local settings file
+settings_local.py
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore JetBrains IDE files
+.idea/
